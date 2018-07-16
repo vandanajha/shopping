@@ -1,0 +1,330 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="main.master.cs" Inherits="main" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+
+<script type="text/javascript">
+<!--
+    var PayPalWindow = null;
+    //Opens a PayPal Window
+
+    function OpenPayPalWindow(url) {
+
+        if (!PayPalWindow || PayPalWindow.closed) {
+            PayPalWindow = window.open(url, "cart", "height=300,width=500");
+        }
+        else {
+            PayPalWindow.location.href = url;
+            PayPalWindow.focus();
+        }
+    }
+-->
+</script>
+    <script type="text/javascript">
+<!--
+        /*
+        Upper Corner Live clock script !
+        */
+
+        function show5() {
+            if (!document.layers && !document.all && !document.getElementById)
+                return
+            var m_names = new Array("January", "February", "March",
+"April", "May", "June", "July", "August", "September",
+"October", "November", "December");
+
+
+            var Digital = new Date();
+            var hours = Digital.getHours();
+            var minutes = Digital.getMinutes();
+            var seconds = Digital.getSeconds();
+            var month = Digital.getMonth();
+            var day = Digital.getDate();
+            var year = Digital.getYear();
+            if (year < 1000)
+                year += 1900
+            var dn = "PM"
+            if (hours < 12)
+                dn = "AM"
+            if (hours > 12)
+                hours = hours - 12
+            if (hours == 0)
+                hours = 12
+
+            if (minutes <= 9)
+                minutes = "0" + minutes
+            if (seconds <= 9)
+                seconds = "0" + seconds
+            //change font size here to your desire
+            myclock = "<font>" + hours + ":" + minutes + ":"
+ + seconds + " " + dn + ", " + day + " " + m_names[month] + ", " + year + "</font>"
+            if (document.layers) {
+                document.layers.liveclock.document.write(myclock)
+                document.layers.liveclock.document.close()
+            }
+            else if (document.all)
+                liveclock.innerHTML = myclock
+            else if (document.getElementById)
+                document.getElementById("liveclock").innerHTML = myclock
+            setTimeout("show5()", 1000)
+        }
+
+
+        window.onload = show5
+        function MM_showHideLayers() { //v9.0
+            var i, p, v, obj, args = MM_showHideLayers.arguments;
+            for (i = 0; i < (args.length - 2); i += 3)
+                with (document) if (getElementById && ((obj = getElementById(args[i])) != null)) {
+                    v = args[i + 2];
+                    if (obj.style) { obj = obj.style; v = (v == 'show') ? 'visible' : (v == 'hide') ? 'hidden' : v; }
+                    obj.visibility = v;
+                }
+        }
+//-->
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>.:: Welcome to Sewa Herbs , Aroma Therapy, Sugar Cure, Essencials Oil ::.</title>
+<!-- InstanceEndEditable -->
+<link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="demo/style.css" type="text/css" media="screen" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<!-- InstanceBeginEditable name="head" -->
+<script type="text/javascript">
+<!--
+    function MM_showHideLayers() { //v9.0
+        var i, p, v, obj, args = MM_showHideLayers.arguments;
+        for (i = 0; i < (args.length - 2); i += 3)
+            with (document) if (getElementById && ((obj = getElementById(args[i])) != null)) {
+                v = args[i + 2];
+                if (obj.style) { obj = obj.style; v = (v == 'show') ? 'visible' : (v == 'hide') ? 'hidden' : v; }
+                obj.visibility = v;
+            }
+    }
+//-->
+</script>
+<!-- InstanceEndEditable -->
+<style type="text/css">
+<!--
+body {
+	background-image: url(images/background.jpg);
+	background-color: #B8AD6B;
+	background-repeat: repeat-x;
+}
+-->
+</style>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <table width="900" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td valign="top"><table width="100%" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="328" height="200"><table width="90%" cellspacing="0" cellpadding="0">
+          <tr>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+              <tbody>
+                <tr>
+                  <td width="66" class="searchtext">&nbsp;<strong> Search :</strong></td>
+                  <td width="161">
+                  
+                    <asp:DropDownList ID="ddlcategory" runat="server" AppendDataBoundItems="true">
+                      <asp:ListItem Selected="True">Select Any Product</asp:ListItem>
+                      
+                    </asp:DropDownList>      
+                                
+                   </td>
+                  <td width="65" style="padding-top:3px;"><input type="image" src="images/search-icon.jpg" name="btsearch2" value="Search" /></td>
+                  </tr>
+              </tbody>
+            </table></td>
+          </tr>
+          <tr>
+            <td height="50">&nbsp;</td>
+          </tr>
+          <tr>
+            <td><table width="100%" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="23%">&nbsp;</td>
+                <td width="30%"><a href="index.aspx"><img src="images/home-icon.jpg" width="40" height="31" border="0" /></a></td>
+                <td width="47%" class="pp"><ul>
+                  <li><a href="about-us.html">About Us</a></li>
+                </ul></td>
+              </tr>
+            </table></td>
+          </tr>
+        </table></td>
+        <td width="250" align="center" valign="top"><div id="apDiv3"></div></td>
+        <td width="328"><table width="80%" align="right" cellpadding="0" cellspacing="0">
+          <tr>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td><table width="100%" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="56%"><img src="images/basket.jpg" width="126" height="35" /></td>
+                <td width="12%">&nbsp;</td>
+                <td width="32%">
+                   <a href="javascript:OpenPayPalWindow('https://www.paypal.com/cgi-bin/webscr?cmd=_cart&business=prasantcalls@live.com&display=1&return=http://www.sewaherbs.in/index.aspx&cancel_return=http://www.sewaherbs.in/index.aspx')">
+                      <img src="images/cart-but.jpg" width="59" height="15" border="0" />
+                   </a>
+                   </td>
+              </tr>
+            </table></td>
+          </tr>
+          <tr>
+            <td height="50" valign="top">&nbsp;&nbsp;&nbsp;&nbsp;Cart is empty</td>
+          </tr>
+          <tr>
+            <td><table width="100%" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td width="8%">&nbsp;</td>
+                  <td width="73%" class="pp"><ul>
+                    <li><a href="health-tips.html">Health Tips</a></li>
+                  </ul></td>
+                  <td width="19%"><a href="contact-us.html"><img src="images/phone-icon.jpg" width="33" height="31" border="0" /></a></td>
+                </tr>
+            </table></td>
+          </tr>
+        </table></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td valign="top" background="images/line.jpg"><img src="images/line.jpg" width="6" height="2" /></td>
+  </tr>
+  <tr>
+    <td valign="top"><table width="100%" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="76%"><table width="96%" align="center" cellpadding="0" cellspacing="0">
+          <tr>
+            <td height="275" valign="top" background="images/slider-bg.jpg"><div id="slider" class="nivoSlider"> <img src="demo/images/pix1.jpg" alt="" title="" /><a href="#"> <img src="demo/images/pix2.jpg" alt="" title="" /></a> <img src="demo/images/pix3.jpg" alt="" title="" /> </div>
+            <div align="right"><span id ="liveclock2"> </span></div>
+              <script type="text/javascript" src="demo/scripts/jquery-1.4.3.min.js"></script>
+                <script type="text/javascript" src="js/jquery.nivo.slider.pack.js"></script>
+                <script type="text/javascript">
+                    $(window).load(function () {
+                        $('#slider').nivoSlider();
+                    });
+                </script></td>
+          </tr>
+        </table></td>
+      </tr>
+    </table></td>
+  </tr>
+  
+  <tr>
+    <td valign="top" bgcolor="#FFFFFF"><table width="100%" cellspacing="0" cellpadding="4">
+      <tr>
+        <td width="78%" valign="top"><table width="100%" cellspacing="0" cellpadding="0">
+          <tr>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td valign="top">
+
+               <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+                </asp:ContentPlaceHolder>
+
+            </td>
+          </tr>
+        </table></td>
+        </tr>
+    </table></td>
+  </tr>
+  
+  <tr>
+    <td height="10" bgcolor="#FFFFFF"><hr size="1" style="color:#669900" /></td>
+  </tr>
+  <tr>
+    <td height="273" valign="top" background="images/bottom-bg.jpg" bgcolor="#FFFFFF"><br />
+      <table width="97%" border="0" align="center" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td height="200" valign="top" bgcolor="#FFFFFF" style="border-bottom:1px solid #e9e9e9;"><table width="100%" cellspacing="0" cellpadding="0">
+            <tr>
+              <td width="26%" valign="top"><table width="80%" align="center" cellpadding="4" cellspacing="0">
+                <tr>
+                  <td class="heading1"> Sewa Herbs</td>
+                </tr>
+                <tr>
+                  <td valign="top" class="leftnav"><ul>
+                    <li><a href="index.aspx">Home</a></li>
+                    <li><a href="about-us.aspx">About Sewa Herbs</a></li>
+                    <li><a href="health-tips.aspx">Health Tips</a></li>
+                    <li><a href="contact-us.aspx">Contact Us</a></li>
+                  </ul></td>
+                </tr>
+              </table></td>
+              <td width="3%" valign="top"><img src="images/line.jpg" width="2" height="221" /></td>
+              <td width="26%" valign="top"><table width="80%" align="center" cellpadding="4" cellspacing="0">
+                <tr>
+                  <td class="heading1">Our Products</td>
+                </tr>
+                <tr>
+                  <td valign="top" class="leftnav">
+                  <asp:Repeater ID="rptcategory" runat="server">
+                     <HeaderTemplate>
+                       <ul>
+                     </HeaderTemplate>
+
+                     <ItemTemplate>
+
+                       <li><a href='list-of-products.aspx?Id=<%#Eval("product_category_Id") %>&category=<%#Eval("product_category_name") %>'><%#Eval("product_category_name") %></a></li>
+                       
+                     </ItemTemplate>
+
+                     <FooterTemplate>
+                        </ul>
+                     </FooterTemplate>
+
+                  </asp:Repeater>
+                  
+                    
+                  
+                  </td>
+                </tr>
+              </table></td>
+              <td width="2%" valign="top"><img src="images/line.jpg" width="2" height="221" /></td>
+              <td width="43%" valign="top"><img src="images/bottom-img.jpg" width="374" height="221" border="0" usemap="#Map" />
+                <map name="Map" id="Map">
+                  <area shape="rect" coords="138,132,180,175" href="https://twitter.com/Sewaherbs" target="_blank" />
+                  <area shape="rect" coords="91,132,131,175" href="http://www.facebook.com/sewa.herbs" target="_blank" />
+                </map></td>
+            </tr>
+          </table></td>
+        </tr>
+        
+        <tr>
+          <td height="31"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr>
+                  <td width="28%" height="31" class="copy">© Copyright All Rights Reserved Sewa Herbs</td>
+                  <td width="49%" align="center"><img src="images/payment-logo.jpg" width="400" height="31" /></td>
+                  <td width="23%" class="copy">Designed &amp; Maintained by :<a href="http://thecreation.in" target="_blank">The Creation</a></td>
+                  </tr>
+              </tbody>
+          </table></td>
+        </tr>
+      </tbody>
+    </table></td>
+  </tr>
+  <tr>
+    <td height="2" bgcolor="#0AB0EF"><table width="94%" align="center" cellpadding="0" cellspacing="0">
+    </table></td>
+  </tr>
+</table>
+
+
+    </form>
+</body>
+</html>
